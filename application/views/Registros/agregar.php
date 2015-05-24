@@ -6,9 +6,9 @@
 		</div>
 		<div class="col-md-4">		
 			<div class="input-group">
-				<span class="input-group-addon" id="basic-addon1">Fecha:</span>				         			 
-				<input name="nFecha" class="form-control" type="date">
-        			  			
+				<span class="input-group-addon" id="basic-addon1">Fecha:</span>
+				<div class="bfh-datepicker" data-name="nFecha" data-format="y-m-d" data-date="today" data-min="today">  
+				</div>		
 			</div>				
 		</div>
 	</div>
@@ -17,8 +17,7 @@
 		<div class="col-md-4">
 		</div>
 		<div class="col-md-4">
-			<div class="input-group">
-				
+			<div class="input-group">				
 				<span class="input-group-addon" id="basic-addon1">Programa educativo:</span>
 				<select name="nProgramaEducativo" class="form-control">
 					<?php foreach ($programasEducativos as $key => $value) {echo "<option value=".$value->id.">".$value->programa_educativo."</option>";} ?>
@@ -44,8 +43,7 @@
 		<div class="col-md-4">
 		</div>
 		<div class="col-md-4">			
-			<div class="input-group">
-				
+			<div class="input-group">				
 				<span class="input-group-addon" id="basic-addon1">Salón:</span>
 				<select class="form-control" name="nSalon">
 		          <?php foreach($salones as $key => $value){echo '<option value="'.$value->id.'">'.$value->salon.'</option>';} ?>
@@ -85,18 +83,7 @@
 				<input type="text" class="form-control" placeholder="Sólo si es uso personal" name="nMatricula" aria-describedby="basic-addon1">
 			</div>
 		</div>
-	</div>
-	<br>
-	<div class="row">
-		<div class="col-md-4">
-		</div>
-		<div class="col-md-4">			
-			<div class="input-group">
-				<span class="input-group-addon" id="basic-addon1">Observaciones:</span>
-				<input type="text" class="form-control" placeholder="Opcional" name="nObservaciones" aria-describedby="basic-addon1">
-			</div>
-		</div>
-	</div>
+	</div>	
 	<br>
 	<div class="row">
 		<div class="col-md-4">
@@ -104,7 +91,8 @@
 		<div class="col-md-4">			
 			<div class="input-group">
 				<span class="input-group-addon" id="basic-addon1">Hora de entrada:</span>				
-				<input type="time" class="form-control" placeholder="HH:MM" name="nHoraEntrada" aria-describedby="basic-addon1">
+				<div class="bfh-timepicker" data-time="now" data-name="nHoraEntrada">
+				</div>				
 			</div>
 		</div>
 	</div>
@@ -114,8 +102,9 @@
 		</div>
 		<div class="col-md-4">			
 			<div class="input-group">
-				<span class="input-group-addon" id="basic-addon1">Hora de salida:</span>
-				<input type="time" class="form-control" placeholder="HH:MM" name="nHoraSalida" aria-describedby="basic-addon1">
+				<span class="input-group-addon" id="basic-addon1">Hora de salida:</span>				
+				<div class="bfh-timepicker" data-time="now" data-name="nHoraEntrada">
+				</div>				
 			</div>
 		</div>
 	</div>
@@ -147,7 +136,18 @@
 						Ninguna
 					</option>
 		          <?php foreach($experiencias_educativas as $key => $value){ echo '<option value="'.$value->id.'">'.$value->experiencia_educativa.'</option>';}?>
-        </select>
+        		</select>
+			</div>
+		</div>
+	</div>
+	<br>
+	<div class="row">
+		<div class="col-md-4">
+		</div>
+		<div class="col-md-4">			
+			<div class="input-group">
+				<span class="input-group-addon" id="basic-addon1">Observaciones:</span>
+				<input type="text" class="form-control" placeholder="Opcional" name="nObservaciones" aria-describedby="basic-addon1">
 			</div>
 		</div>
 	</div>
