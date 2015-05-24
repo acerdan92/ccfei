@@ -1,10 +1,13 @@
 <?php
 	class ReportesModel extends CI_Model{
-		function getHoras(){
-			$this->db->select('salon');
-			$this->db->from('salones');
-			$query = $this->db->get();
-			return $query;
+
+		function obtenerProgramasEducativos(){
+			$query = $this->db->get('programas_educativos');
+			return $query->result();
+		}
+		function obtenerTipoUso(){
+			$query = $this->db->get('tipo_usos');
+			return $query->result();
 		}
 	}
 ?>

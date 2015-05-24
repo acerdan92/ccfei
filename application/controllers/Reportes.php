@@ -7,8 +7,10 @@
 		}
 		public function Index(){
 			$data['titulo'] = 'Reportes';
+			$data['programasEducativos'] = $this->ReportesModel->obtenerProgramasEducativos();
+			$data['tipoUsos'] = $this->ReportesModel->obtenerTipoUso();
 			$this->load->view('Plantillas/header',$data);
-			$this->load->view('Reportes/index');
+			$this->load->view('Reportes/index',$data);
 			$this->load->view('Plantillas/footer');
 		}
 
