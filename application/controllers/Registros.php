@@ -8,9 +8,9 @@
 
 		public function Index(){
 			$data['titulo'] = 'Registros';
-			$this-> load-> view('Plantillas/header',$data);
-			$this-> load-> view('Registros/index');
-			$this-> load-> view('Plantillas/footer');
+			$this->load->view('Plantillas/header',$data);
+			$this->load->view('Registros/index');
+			$this->load->view('Plantillas/footer');
 		}
 
 		public function agregar(){
