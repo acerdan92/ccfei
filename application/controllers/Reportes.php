@@ -30,16 +30,49 @@
 				}else{					
 					$this->ReportesModel->generaConsulta($data);
 					$result = $this->ReportesModel->generaConsulta($data);
-					print_r($result);
-				}			
+					//print_r($result);					
+				}
+				$this->gcharts->load('ColumnChart');
+				$temp = array();
+
+				
+				foreach ($result as $row) {
+					$temp[]=$row->CantidadDeUsuarios;
+				}
+				$this->gcharts->DataTable('Reporte')
+				              ->addColumn('string', 'Aulas', 'aulas')
+				              ->addColumn('number', 'CC1', 'cc1')
+				              ->addColumn('number', 'CC2', 'cc2')
+				              ->addColumn('number', 'CC3', 'cc3')
+				              ->addColumn('number', 'CC4', 'cc4')
+				              ->addRow(array(
+				                  'Aulas',
+				       			  $temp['0'],
+				                  $temp['1'],
+				                  $temp['2'],
+				                  $temp['3']				                  
+				              ));
+				$config = array(
+				    'title' => 'Reporte'	
+				);
+				$this->gcharts->ColumnChart('Inventory')->setConfig($config);
+				$this->load->view('Reportes/column_chart_basic');			
 		}
 
 
+
+
+
+
+
 		public function column_chart_basic(){
+
+
 	        $this->gcharts->load('ColumnChart');
 
 	        $this->gcharts->DataTable('Inventory')
 	                      ->addColumn('string', 'Classroom', 'class')
+
 	                      ->addColumn('number', 'Pencils', 'pencils')
 	                      ->addColumn('number', 'Markers', 'markers')
 	                      ->addColumn('number', 'Erasers', 'erasers')

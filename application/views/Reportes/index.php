@@ -7,7 +7,7 @@
 		<div class="col-md-4">
 			<div class="input-group">				
 				<span class="input-group-addon" id="basic-addon1">Tipo de reporte:</span>
-				<select name="nTipoReporte" class="form-control">
+				<select name="nTipoReporte" class="form-control">					
 					<option value="1">Cantidad de usuarios</option>
 					<option value="2">Cantidad de horas</option>					
 				</select>				
@@ -35,6 +35,7 @@
 			<div class="input-group">				
 				<span class="input-group-addon" id="basic-addon1">Tipo de uso:</span>
 				<select name="nTipoUso" class="form-control">
+					<option value="0">Todos</option>
 					<?php foreach($tipoUsos as $key => $value){echo "<option value=".$value->id.">".$value->Uso."</option>";}?>
 				</select>				
 			</div>
