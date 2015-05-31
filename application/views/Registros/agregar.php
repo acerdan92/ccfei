@@ -2,9 +2,8 @@
 <div class="container">
 	<?php echo form_open(base_url().'Registros/agregarRegistro'); ?>
 	<div class="row">
-		<div class="col-md-4">
-		</div>
-		<div class="col-md-4">		
+
+		<div class="col-md-6">		
 			<div class="input-group">
 				<span class="input-group-addon" id="basic-addon1">Fecha:</span>
 				<div class="bfh-datepicker" data-name="nFecha" data-format="y-m-d" data-date="today" data-min="today">  
@@ -14,9 +13,8 @@
 	</div>
 	<br>
 	<div class="row">
-		<div class="col-md-4">
-		</div>
-		<div class="col-md-4">
+
+		<div class="col-md-6">
 			<div class="input-group">				
 				<span class="input-group-addon" id="basic-addon1">Programa educativo:</span>
 				<select name="nProgramaEducativo" class="form-control">
@@ -27,9 +25,8 @@
 	</div>
 	<br>
 	<div class="row">
-		<div class="col-md-4">
-		</div>
-		<div class="col-md-4">						
+
+		<div class="col-md-6">						
 			<div class="input-group">
 				<span class="input-group-addon" id="basic-addon1">Tipo de uso:</span>
 				<select class="form-control" name="nTipoUso">
@@ -40,9 +37,8 @@
 	</div>
 	<br>
 	<div class="row">
-		<div class="col-md-4">
-		</div>
-		<div class="col-md-4">			
+
+		<div class="col-md-6">			
 			<div class="input-group">				
 				<span class="input-group-addon" id="basic-addon1">Salón:</span>
 				<select class="form-control" name="nSalon">
@@ -53,9 +49,8 @@
 	</div>
 	<br>
 	<div class="row">
-		<div class="col-md-4">
-		</div>
-		<div class="col-md-4">			
+
+		<div class="col-md-6">			
 			<div class="input-group">
 				<span class="input-group-addon" id="basic-addon1">Cantidad de horas:</span>				
 				<input type="text" class="form-control bfh-number" name="nCantidadHoras" data-min="1" data-max="24" >
@@ -64,9 +59,8 @@
 	</div>
 	<br>
 	<div class="row">
-		<div class="col-md-4">
-		</div>
-		<div class="col-md-4">			
+
+		<div class="col-md-6">			
 			<div class="input-group">
 				<span class="input-group-addon" id="basic-addon1">Cantidad de usuarios:</span>				
 				<input name="nCantidadUsuarios" type="text" class="form-control bfh-number" data-min="1" data-max="40">
@@ -75,9 +69,8 @@
 	</div>
 	<br>
 	<div class="row">
-		<div class="col-md-4">
-		</div>
-		<div class="col-md-4">			
+
+		<div class="col-md-6">			
 			<div class="input-group">
 				<span class="input-group-addon" id="basic-addon1">Matrícula:</span>
 				<input type="text" class="form-control" placeholder="Sólo si es uso personal" name="nMatricula" aria-describedby="basic-addon1">
@@ -86,9 +79,8 @@
 	</div>	
 	<br>
 	<div class="row">
-		<div class="col-md-4">
-		</div>
-		<div class="col-md-4">			
+
+		<div class="col-md-6">			
 			<div class="input-group">
 				<span class="input-group-addon" id="basic-addon1">Hora de entrada:</span>				
 				<div class="bfh-timepicker" data-time="now" data-name="nHoraEntrada">
@@ -98,9 +90,8 @@
 	</div>
 	<br>
 	<div class="row">
-		<div class="col-md-4">
-		</div>
-		<div class="col-md-4">			
+
+		<div class="col-md-6">			
 			<div class="input-group">
 				<span class="input-group-addon" id="basic-addon1">Hora de salida:</span>				
 				<div class="bfh-timepicker" data-time="now" data-name="nHoraEntrada">
@@ -110,9 +101,8 @@
 	</div>
 	<br>
 	<div class="row">
-		<div class="col-md-4">
-		</div>
-		<div class="col-md-4">			
+
+		<div class="col-md-6">			
 			<div class="input-group">
 				<span class="input-group-addon" id="basic-addon1">Docente:</span>
 				<select class="form-control" name="nDocente">
@@ -126,9 +116,8 @@
 	</div>
 	<br>
 	<div class="row">
-		<div class="col-md-4">
-		</div>
-		<div class="col-md-4">			
+
+		<div class="col-md-6">			
 			<div class="input-group">
 				<span class="input-group-addon" id="basic-addon1">Experiencia educativa:</span>
 				<select class="form-control" name="nExperienciaEducativa">
@@ -142,9 +131,8 @@
 	</div>
 	<br>
 	<div class="row">
-		<div class="col-md-4">
-		</div>
-		<div class="col-md-4">			
+
+		<div class="col-md-6">			
 			<div class="input-group">
 				<span class="input-group-addon" id="basic-addon1">Observaciones:</span>
 				<input type="text" class="form-control" placeholder="Opcional" name="nObservaciones" aria-describedby="basic-addon1">
@@ -155,11 +143,6 @@
 	<div class="row">		 
 		<div class="col-lg-6">			
 			<button type="submit" class="btn btn-success pull-right">Guardar</button>
-		</div>
-	</div>
-	<div class="row">
-		<div class="col-md-4">
-			<?php echo validation_errors(); ?>
 		</div>
 	</div>
 	<?php echo form_close(); ?>

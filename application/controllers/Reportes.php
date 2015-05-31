@@ -18,6 +18,10 @@
 		}
 
 		public function generarReporte(){
+
+			$data['titulo'] = 'Gráfico';
+			$this->load->view('Plantillas/header', $data);
+			
 			$data = array(			
 				'tipo_reporte' => $this->input->post('nTipoReporte'),			
 				'programas_educativos_id' => $this->input->post('nProgramaEducativo'), 
@@ -25,73 +29,59 @@
 				'fechaInicio' => $this->input->post('nFechaInicio'), 
 				'fechaFin' => $this->input->post('nFechaFin')
 				);	
-				if($data['fechaFin'] < $data['fechaInicio']){
+
+
+				if($data['fechaFin'] < $data['fechaInicio']){					
 					echo "El rango de fechas está mal definido: fecha final menor a la inicial";
-				}else{					
-					$this->ReportesModel->generaConsulta($data);
-					$result = $this->ReportesModel->generaConsulta($data);
-					//print_r($result);					
-				}
-				$this->gcharts->load('ColumnChart');
-				$temp = array();
+				}else{
 
-				
-				foreach ($result as $row) {
-					$temp[]=$row->CantidadDeUsuarios;
-				}
-				$this->gcharts->DataTable('Reporte')
-				              ->addColumn('string', 'Aulas', 'aulas')
-				              ->addColumn('number', 'CC1', 'cc1')
-				              ->addColumn('number', 'CC2', 'cc2')
-				              ->addColumn('number', 'CC3', 'cc3')
-				              ->addColumn('number', 'CC4', 'cc4')
-				              ->addRow(array(
-				                  'Aulas',
-				       			  $temp['0'],
-				                  $temp['1'],
-				                  $temp['2'],
-				                  $temp['3']				                  
-				              ));
-				$config = array(
-				    'title' => 'Reporte'	
-				);
-				$this->gcharts->ColumnChart('Inventory')->setConfig($config);
-				$this->load->view('Reportes/column_chart_basic');			
-		}
+					$result = $this->ReportesModel->generaConsulta($data);					
+
+					//print_r($result);	
+
+					$this->gcharts->load('ColumnChart');
+
+					$tempSalones = array();
+					$tempValores = array('Aulas');
 
 
+					if($data['tipo_reporte'] == 1){
+						foreach ($result as $row) {
+							$tempSalones[]=$row->salon;
+							$tempValores[]=$row->CantidadDeUsuarios;							
+						}
+					}
+
+					if($data['tipo_reporte'] == 2){
+						foreach ($result as $row) {
+							$tempSalones[]=$row->salon;
+							$tempValores[]=$row->HorasServicio;
+						}
+					}
+
+					// print_r($tempSalones);
+					// print_r($tempValores);
+					
+
+					$this->gcharts->DataTable('Reporte')->addColumn('string', 'Aula', 'aula');
 
 
+					for($i = 0; $i < count($tempSalones); $i++){
+						$salon = $tempSalones[$i];
+						$this->gcharts->DataTable('Reporte')->addColumn('number',$salon,'aula');
+					}
 
+					$this->gcharts->DataTable('Reporte')->addRow($tempValores);
+					
 
+					$config = array(
+					     'title' => 'Reporte'	
+					);
 
-		public function column_chart_basic(){
-
-
-	        $this->gcharts->load('ColumnChart');
-
-	        $this->gcharts->DataTable('Inventory')
-	                      ->addColumn('string', 'Classroom', 'class')
-
-	                      ->addColumn('number', 'Pencils', 'pencils')
-	                      ->addColumn('number', 'Markers', 'markers')
-	                      ->addColumn('number', 'Erasers', 'erasers')
-	                      ->addColumn('number', 'Binders', 'binders')
-	                      ->addRow(array(
-	                          'Science Class',
-	                          rand(50, 100),
-	                          rand(50, 100),
-	                          rand(50, 100),
-	                          rand(50, 100)
-	                      ));
-
-	        $config = array(
-	            'title' => 'Inventory'	
-	        );
-
-	        $this->gcharts->ColumnChart('Inventory')->setConfig($config);
-
-	        $this->load->view('Reportes/column_chart_basic');
-	    }
+					$this->gcharts->ColumnChart('Inventory')->setConfig($config);
+					$this->load->view('Reportes/graficoColumnas');					
+				}				
+				$this->load->view('Plantillas/footer');		
+		}	
 	}	
 ?>
