@@ -28,7 +28,9 @@
 				'tipo_usos_id' => $this->input->post('nTipoUso'),
 				'fechaInicio' => $this->input->post('nFechaInicio'), 
 				'fechaFin' => $this->input->post('nFechaFin')
-				);	
+				);
+
+				
 
 
 				if($data['fechaFin'] < $data['fechaInicio']){					
@@ -76,10 +78,11 @@
 
 					$config = array(
 					     'title' => 'Reporte'	
-					);
+					);		
+
 
 					$this->gcharts->ColumnChart('Inventory')->setConfig($config);
-					$this->load->view('Reportes/graficoColumnas');					
+					$this->load->view('Reportes/graficoColumnas',$data);					
 				}				
 				$this->load->view('Plantillas/footer');		
 		}	

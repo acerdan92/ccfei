@@ -1,8 +1,16 @@
+<style type="text/css">
+	.col-md-6{
+		padding-top: 10px;
+		padding-bottom: 10px;
+		padding-right: 10px;
+		padding-left: 10px;
+	}
+</style>
 <h1><center>Registrar uso de salón</center></h1>
+<hr>
 <div class="container">
 	<?php echo form_open(base_url().'Registros/agregarRegistro'); ?>
 	<div class="row">
-
 		<div class="col-md-6">		
 			<div class="input-group">
 				<span class="input-group-addon" id="basic-addon1">Fecha:</span>
@@ -10,10 +18,15 @@
 				</div>		
 			</div>				
 		</div>
+		<div class="col-md-6">			
+			<div class="input-group">
+				<span class="input-group-addon" id="basic-addon1">Matrícula:</span>
+				<input type="text" class="form-control" placeholder="Sólo si es uso personal" name="nMatricula" aria-describedby="basic-addon1">
+			</div>
+		</div>
 	</div>
 	<br>
 	<div class="row">
-
 		<div class="col-md-6">
 			<div class="input-group">				
 				<span class="input-group-addon" id="basic-addon1">Programa educativo:</span>
@@ -22,64 +35,6 @@
 				</select>
 			</div>
 		</div>
-	</div>
-	<br>
-	<div class="row">
-
-		<div class="col-md-6">						
-			<div class="input-group">
-				<span class="input-group-addon" id="basic-addon1">Tipo de uso:</span>
-				<select class="form-control" name="nTipoUso">
-		          	<?php foreach($tipoUsos as $key => $value){echo "<option value=".$value->id.">".$value->Uso."</option>";}?>
-        		</select>
-        	</div>		
-		</div>		
-	</div>
-	<br>
-	<div class="row">
-
-		<div class="col-md-6">			
-			<div class="input-group">				
-				<span class="input-group-addon" id="basic-addon1">Salón:</span>
-				<select class="form-control" name="nSalon">
-		          <?php foreach($salones as $key => $value){echo '<option value="'.$value->id.'">'.$value->salon.'</option>';} ?>
-        		</select>
-			</div>
-		</div>
-	</div>
-	<br>
-	<div class="row">
-
-		<div class="col-md-6">			
-			<div class="input-group">
-				<span class="input-group-addon" id="basic-addon1">Cantidad de horas:</span>				
-				<input type="text" class="form-control bfh-number" name="nCantidadHoras" data-min="1" data-max="24" >
-			</div>
-		</div>
-	</div>
-	<br>
-	<div class="row">
-
-		<div class="col-md-6">			
-			<div class="input-group">
-				<span class="input-group-addon" id="basic-addon1">Cantidad de usuarios:</span>				
-				<input name="nCantidadUsuarios" type="text" class="form-control bfh-number" data-min="1" data-max="40">
-			</div>
-		</div>
-	</div>
-	<br>
-	<div class="row">
-
-		<div class="col-md-6">			
-			<div class="input-group">
-				<span class="input-group-addon" id="basic-addon1">Matrícula:</span>
-				<input type="text" class="form-control" placeholder="Sólo si es uso personal" name="nMatricula" aria-describedby="basic-addon1">
-			</div>
-		</div>
-	</div>	
-	<br>
-	<div class="row">
-
 		<div class="col-md-6">			
 			<div class="input-group">
 				<span class="input-group-addon" id="basic-addon1">Hora de entrada:</span>				
@@ -90,18 +45,32 @@
 	</div>
 	<br>
 	<div class="row">
-
+		<div class="col-md-6">						
+			<div class="input-group">
+				<span class="input-group-addon" id="basic-addon1">Tipo de uso:</span>
+				<select class="form-control" name="nTipoUso">
+		          	<?php foreach($tipoUsos as $key => $value){echo "<option value=".$value->id.">".$value->Uso."</option>";}?>
+        		</select>
+        	</div>		
+		</div>	
 		<div class="col-md-6">			
 			<div class="input-group">
 				<span class="input-group-addon" id="basic-addon1">Hora de salida:</span>				
 				<div class="bfh-timepicker" data-time="now" data-name="nHoraEntrada">
 				</div>				
 			</div>
-		</div>
+		</div>	
 	</div>
 	<br>
 	<div class="row">
-
+		<div class="col-md-6">			
+			<div class="input-group">				
+				<span class="input-group-addon" id="basic-addon1">Salón:</span>
+				<select class="form-control" name="nSalon">
+		          <?php foreach($salones as $key => $value){echo '<option value="'.$value->id.'">'.$value->salon.'</option>';} ?>
+        		</select>
+			</div>
+		</div>
 		<div class="col-md-6">			
 			<div class="input-group">
 				<span class="input-group-addon" id="basic-addon1">Docente:</span>
@@ -116,7 +85,12 @@
 	</div>
 	<br>
 	<div class="row">
-
+		<div class="col-md-6">			
+			<div class="input-group">
+				<span class="input-group-addon" id="basic-addon1">Cantidad de horas:</span>				
+				<input type="text" class="form-control bfh-number" name="nCantidadHoras" data-min="1" data-max="24" >
+			</div>
+		</div>
 		<div class="col-md-6">			
 			<div class="input-group">
 				<span class="input-group-addon" id="basic-addon1">Experiencia educativa:</span>
@@ -131,7 +105,12 @@
 	</div>
 	<br>
 	<div class="row">
-
+		<div class="col-md-6">			
+			<div class="input-group">
+				<span class="input-group-addon" id="basic-addon1">Cantidad de usuarios:</span>				
+				<input name="nCantidadUsuarios" type="text" class="form-control bfh-number" data-min="1" data-max="40">
+			</div>
+		</div>
 		<div class="col-md-6">			
 			<div class="input-group">
 				<span class="input-group-addon" id="basic-addon1">Observaciones:</span>
@@ -141,10 +120,9 @@
 	</div>
 	<br>
 	<div class="row">		 
-		<div class="col-lg-6">			
+		<div class="col-md-6">			
 			<button type="submit" class="btn btn-success pull-right">Guardar</button>
 		</div>
 	</div>
 	<?php echo form_close(); ?>
 </div>
-

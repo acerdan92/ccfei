@@ -20,9 +20,9 @@
 			$data['tipoUsos'] = $this->RegistrosModel->obtenerTipoUso();
 			$data['docentes'] = $this->RegistrosModel->obtenerDocentes();
 			$data['experiencias_educativas'] = $this->RegistrosModel->obtenerExperienciasEducativas();
-			$this-> load-> view('Plantillas/header',$data);
-			$this-> load-> view('Registros/agregar',$data);		
-			$this-> load-> view('Plantillas/footer');
+			$this->load->view('Plantillas/header',$data);
+			$this->load->view('Registros/agregar',$data);		
+			$this->load->view('Plantillas/footer');
 		}
 
 		public function agregarRegistro(){						
